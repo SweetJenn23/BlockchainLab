@@ -16,7 +16,7 @@ This lab will be broken into two parts Ð creating chaincode and generating API a
 ### Terminology
 With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they are related.
 
-** Hyperledger Fabric: ** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
+**Hyperledger Fabric:** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
 
 
 
