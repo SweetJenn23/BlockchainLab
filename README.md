@@ -14,7 +14,7 @@ The blockchain workshop is intended to give you a basic understanding of how a d
 This lab will be broken into two parts – creating chaincode and generating API and using NodeRed to test API integration.
 
 ### Terminology
-With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they’re related.
+With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they are related.
 
 ** Hyperledger Fabric: ** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
 
