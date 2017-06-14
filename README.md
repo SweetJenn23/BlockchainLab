@@ -16,13 +16,13 @@ This lab will be broken into two parts: creating chaincode and generating API an
 ### Terminology
 With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they are related.
 
+**ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance.
+
 **blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. 
 
-**block** An ordered set of transactions that is cryptographically linked to the preceding block(s) on a channel.
+**block:** An ordered set of transactions that is cryptographically linked to the preceding block(s) on a channel.
 
-**chain** The ledger?s chain is a transaction log structured as hash-linked blocks of transactions. Peers receive blocks of transactions from the ordering service, mark the block?s transactions as valid or invalid based on endorsement policies and concurrency violations, and append the block to the hash chain on the peer?s file system.
-
-**ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance.
+**chain:** The chain of the ledger is a transaction log structured as hash-linked blocks of transactions. Peers receive blocks of transactions from the ordering service, mark the block?s transactions as valid or invalid based on endorsement policies and concurrency violations, and append the block to the hash chain on the peer?s file system.
 
 **Hyperledger Fabric:** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
 
