@@ -11,16 +11,20 @@ In this lab, NodeRed will communicate with the Hyperledger Fabric through APIs. 
 ## Application Overview
 The blockchain workshop is intended to give you a basic understanding of how a developer would interact with Hyperledger Fabric. In this workshop you will use a Browser based UI to modify chaincode, test your code and deploy your changes. You will also learn how tooling can take the code and generate API to allow for application integration through a REST-ful interface. 
 
-This lab will be broken into two parts � creating chaincode and generating API and using NodeRed to test API integration.
+This lab will be broken into two parts: creating chaincode and generating API and using NodeRed to test API integration.
 
 ### Terminology
 With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they are related.
 
-**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. A block is a group of valid transactions that are given a hash. This hash includes the hash of the prior block in the blockchain that *chains* the two *blocks* together. Transactions are validated through a process called consensus.
+**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. A block is a group of valid transactions that are given a hash. This hash includes the hash of the prior block in the blockchain that *chains* the two *blocks* together. Transactions are validated through a process called consensus. **NOTE FROM VANCE: I'm not sure this is really all that accurate. Nothing wrong with what you're saying, but the blockchain doesn't do the distribution, nor does it have anything to do with consensus... at least not to my mind..**
 
-**ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance.
+**block** An ordered set of transactions that is cryptographically linked to the preceding block(s) on a channel.
 
-**Hyperledger Fabric:** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
+**chain** The ledger’s chain is a transaction log structured as hash-linked blocks of transactions. Peers receive blocks of transactions from the ordering service, mark the block’s transactions as valid or invalid based on endorsement policies and concurrency violations, and append the block to the hash chain on the peer’s file system.
+
+**ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance. A ledger is a channel’s chain and current state data which is maintained by each peer on the channel.
+
+**Hyperledger Fabric:** A specific implementation of distributed ledger technology. This implementation is built for business use and is not dependent on any cryptocurrency. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
 
 **_Note:_** You will see blockchain, ledger, Hyperledger (referring to the fabric) and fabric used interchangeably. They are all referring to the concept of blockchain.
 
