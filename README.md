@@ -11,12 +11,16 @@ In this lab, NodeRed will communicate with the Hyperledger Fabric through APIs. 
 ## Application Overview
 The blockchain workshop is intended to give you a basic understanding of how a developer would interact with Hyperledger Fabric. In this workshop you will use a Browser based UI to modify chaincode, test your code and deploy your changes. You will also learn how tooling can take the code and generate API to allow for application integration through a REST-ful interface. 
 
-This lab will be broken into two parts Ð creating chaincode and generating API and using NodeRed to test API integration.
+This lab will be broken into two parts: creating chaincode and generating API and using NodeRed to test API integration.
 
 ### Terminology
 With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they are related.
 
-**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. A block is a group of valid transactions that are given a hash. This hash includes the hash of the prior block in the blockchain that *chains* the two *blocks* together. Transactions are validated through a process called consensus.
+**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. 
+
+**block** An ordered set of transactions that is cryptographically linked to the preceding block(s) on a channel.
+
+**chain** The ledger?s chain is a transaction log structured as hash-linked blocks of transactions. Peers receive blocks of transactions from the ordering service, mark the block?s transactions as valid or invalid based on endorsement policies and concurrency violations, and append the block to the hash chain on the peer?s file system.
 
 **ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance.
 
