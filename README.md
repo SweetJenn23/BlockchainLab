@@ -16,13 +16,13 @@ This lab will be broken into two parts – creating chaincode and generating API a
 ### Terminology
 With blockchain, many words are used interchangeably. This section is an attempt to decode them and show how they are related.
 
-**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. A block is a group of valid transactions that are given a hash. This hash includes the hash of the prior block in the blockchain that “chains” the two “blocks” together. Transactions are validated through a process called consensus.
+**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. A block is a group of valid transactions that are given a hash. This hash includes the hash of the prior block in the blockchain that *chains* the two *blocks* together. Transactions are validated through a process called consensus.
 
 **ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance.
 
 **Hyperledger Fabric:** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
 
-**_Note:_** You’ll see blockchain, ledger, Hyperledger (referring to the fabric) and fabric used interchangeably. They are all referring to the concept of blockchain.
+**_Note:_** You will see blockchain, ledger, Hyperledger (referring to the fabric) and fabric used interchangeably. They are all referring to the concept of blockchain.
 
 **Hyperledger Composer:** (Composer) an open development toolset and framework to make creating blockchain applications easier. The tooling can be used through a Command Line Interface (CLI) or through a web UI called Composer Playground. Each interface allows for developers to define the network in terms of participants, asset(s) and transactions.  Composer also includes the ability to run a rest server that uses Swagger to generate callable APIs to interact with chaincode. For more information: [Hyperledger Composer page](https://hyperledger.github.io/composer/introduction/introduction.html).
 
