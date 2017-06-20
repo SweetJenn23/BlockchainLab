@@ -45,9 +45,8 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 ## Workshop Setup
 To run this workshop you will need the following:
-1. An IBM VPN Client
-2. Webbrowser (tested with Firefox and Chrome)
-3.  [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
+1. Webbrowser (tested with Firefox and Chrome)
+2.  [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
 ## Workshop Instructions
 
