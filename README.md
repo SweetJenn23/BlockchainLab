@@ -40,3 +40,14 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 **_Note:_** You may see chaincode, smart contract and transaction (in relation to Composer) used interchangably. They can refer to the same thing conceptually. In reality, chaincode == the business network artifact from Composer, transaction defines what is in a transaction (e.g. data, assets) and a smart contract is really the logic that is written to make a transaction actually happen in Composer.
 
+## Project Repositories
+**_TBD_
+
+## Workshop Setup
+To run this workshop you will need the following:
+1. An IBM VPN Client
+2. Webbrowser (tested with Firefox and Chrome)
+3.  [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
+
+## Workshop Instructions
+
