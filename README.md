@@ -1,4 +1,4 @@
-  ![STSA Logo](https://github.com/SweetJenn23/BlockchainLab/blob/master/images/STSALogo.png)
+  ![STSA Logo](images/STSALogo.png)
 # Workshop 3: Blockchain
 
 ## Architecture
@@ -6,7 +6,7 @@
 
 In this lab, NodeRed will communicate with the Hyperledger Fabric through APIs. NodeRed will also facilitate communication between the ledger and [Weather.com](https://twcservice.mybluemix.net/rest-api/).
 
-![Lab Architecture](https://github.com/SweetJenn23/BlockchainLab/blob/master/images/BlockchainArchitecture/Slide1.png)
+![Lab Architecture](images/BlockchainArchitecture/Slide1.png)
 
 ## Application Overview
 The blockchain workshop is intended to give you a basic understanding of how a developer would interact with Hyperledger Fabric. In this workshop you will use a Browser based UI to modify chaincode, test your code and deploy your changes. You will also learn how tooling can take the code and generate API to allow for application integration through a REST-ful interface. 
@@ -57,9 +57,16 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 #### Defining your blockchain network
 1. Open the GitHub [repository for this lab](https://github.com/SweetJenn23/BlockchainLab).
-![GitHub Repository](https://github.com/SweetJenn23/BlockchainLab/blob/master/images/Part1_Step1.png)
+   ![GitHub Repository](images/Part1_Step1.png)
+
+
 2. Select **STSABlockchainPart1.bna**.
-![Select stsa-temp-part1.bna](
+   ![Select stsa-temp-part1.bna](images/Part1_Step2.png)
+
+
 3. Click **Download**.
+   ![Select Download](images/Part1_Step3.png)
+
+
 4. 
 
