@@ -46,16 +46,20 @@ With blockchain, many words are used interchangeably. This section is an attempt
 ## Workshop Setup
 To run this workshop you will need the following:
 1. Webbrowser (tested with Firefox and Chrome)
-2.  [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
+
 
 ## Workshop Instructions
 ### Scenario Overview
 Your Raspberry Pi Sens HAT detects the temperature in the room or the temperature you create around it. In a real world scenario, this could be a temperature gauge in your house or in an office building. In this lab, we have a logical thermostat that only exists programatically in blockchain. This could be connected to a real thermostat like Nest via API. To keep family members, housemates, friends or children from excessively running air conditioning or heat, they must first find out if they have permission to adjust the thermostat by running a transaction defined in a smart contract running on Hyperledger Fabric. We will also add in the ability to consult current conditions via API from Weather.com to optimally set the thermostat.
 
 ### Part 1 - Working with Chaincode
-In this section of the lab you will be working with Hyperledger Composer to create chaincode that could run on a blockchain network. We will create our code in the the Composer Playground, a browser based UI. The code has already been started for and is stored in GitHub.
+In this section of the lab you will be working with Hyperledger Composer to create chaincode that could run on a blockchain network. We will create our code in the the Composer Playground, a browser based UI. The code has already been started and is stored in GitHub.
 
 #### Defining your blockchain network
-1. Install Git to your local machine. (If you already have it installed, skip to step ??.) Follow the Git documentation: [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-2. 
+1. Open the GitHub [repository for this lab](https://github.com/SweetJenn23/BlockchainLab).
+![GitHub Repository](https://github.com/SweetJenn23/BlockchainLab/blob/master/images/Part1_Step1.png)
+2. Select **STSABlockchainPart1.bna**.
+![Select stsa-temp-part1.bna](
+3. Click **Download**.
+4. 
 
