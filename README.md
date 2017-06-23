@@ -34,7 +34,7 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 **smart contract:** (contract) your terms for doing business in a blockchain network. Really, this is the conditions that a transaction can occur in. It may include checking for other specific information to allow the transaction to occur. In Composer terms, this is the logic that makes your transaction work.
 
-**business network artifact:** When using Composer, the defined network of participants, assets and transactions can be exported to a file type known as business network artifact (.bna). 
+**business network artifact:** When using Composer, the defined network of participants, assets and transactions can be exported to a packaging of files known as a business network artifact (.bna). 
 
 **chaincode:** code written for blockchain. Typically this an application written in Go or NodeSDK. It now can also mean the same thing as your .bna. When you create your network and supporting logic in Composer, the entire package becomes your chaincode. 
 
@@ -82,8 +82,72 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 4. In a browser, go to the Composer Playground running on Bluemix. [https://composer-playground.mybluemix.net/editor](https://composer-playground.mybluemix.net/editor)
    ![Open Composer Playground in a browser](images/Part1_Step4.png)
+
+   ​
+
    * Explore Composer Playground.
-     i. 
+
+     * Click **About** *(README.md)*: This is a text file designed to tell you about the code you are going to work with.
+
+       ​
+
+     * Select **Model File** *(models/org.acme.sample.cto)*: This is where you create your *model* `participants`, `assets` and `transactions`.
+
+     ![Model File Samples](images/Part1_Step4ModelFile.png)
+
+     ​
+
+     * Select **Script File** *(lib/sample.js)*: This is where you write JavaScript to give functionality (logic) to your model. All of this together creates your chaincode.
+
+       ![Script File example](images/Part1_Step4ScriptFile.png)
+
+       ​
+
+     * Select **Access Control** *(permissions.acl)*: This allows you to control what permissions participants in the network have.
+
+       ![ACL example](images/Part1_Step4ACLFile.png)
+
+       ​
+
+     * **Note:** All of these files together become part of your **.bna** (business network archive) once you deploy them. Business Network Archive is a file type created by Hyperledger Composer. You may also hear this refered to as business network definition.
+
+       ​
+
+     * Select **Add File**: This would allow you to add another file to the web UI. Click **Cancel**
+
+       ![Add File example](images/Part1_Step4AddFile.png)
+
+       ​
+
+     * At the top of the page, select **Test**.
+
+       ![Select Test](images/Part1_Step4Test.png)
+
+       ​
+
+     * Under the Test tab, you will be able to interact with your code after you've delected **Deploy** on the Define tab. As shown below, you see that you can create a participant based on specifications from your model file. We won't explore through more of these right now because we will be working with them closely later in the lab.
+
+       ![Example of Testing code](images/Part1_Step4SampleParticipant.png)
+
+       ​
+
+     * At the top of the page, select **Admin**.
+
+       ![Select Admin](images/Part1_Step4Admin.png)
+
+       ​
+
+     * The credentials that Composer Playground is using to access blockchain are stored here. From here you can also issue new credentials if you have authority.
+
+       ![Admin Sample](images/Part1_Step4AdminSample.png)
+
+       ​
+
+     * The Composer Playground running on Bluemix is not currently connected to a blockchain environment. That's okay! The browser will simulate how things would work if connected to blockchain. In a Composer Playground connected to a blockchain, there will be a **globe** icon instead of **Get local version**. In that tab, you can create a connection profile with issued credentials to access specific blockchain networks where you would deploy your business network definition and interact with it.
+
+       ![Connection example](images/Part1_Step4Globe.png)
+
+     ​
 
 
 
