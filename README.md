@@ -60,13 +60,69 @@ In this section of the lab you will be working with Hyperledger Composer to crea
    ![GitHub Repository](images/Part1_Step1.png)
 
 
-2. Select **STSABlockchainPart1.bna**.
+
+
+
+
+2. Select **stsa-temp-part1.bna**.
    ![Select stsa-temp-part1.bna](images/Part1_Step2.png)
+
+
+
+
 
 
 3. Click **Download**.
    ![Select Download](images/Part1_Step3.png)
 
 
-4. 
 
+
+
+
+4. In a browser, go to the Composer Playground running on Bluemix. [https://composer-playground.mybluemix.net/editor](https://composer-playground.mybluemix.net/editor)
+   ![Open Composer Playground in a browser](images/Part1_Step4.png)
+   * Explore Composer Playground.
+     i. 
+
+
+
+
+
+5. Scroll down on the left side of the Composer Playground and select **Import/Replace**.
+   ![Select Import/Replace](images/Part1_Step5.png)
+
+
+
+
+
+6. Click the **browse** link.
+   ![Click browse](images/Part1_Step6.png)
+
+
+
+
+
+7. Navigate to where you downloaded the **stsa-temp-part1.bna** file, select the file and click **Open**.
+   ![Select stsa-temp-part1.bna](images/Part1_Step7.png)
+
+
+
+
+
+8. From the _Import/Replace dialog window_, verify that your file shows it contains 1 asset, 0 participants and 3 transactions. Click **Deploy**.
+   ![Deploy bna file.](images/Part1_Step8.png)
+
+
+
+
+
+9. On the warning box, _Current definition will be replaced_, accept the warning by clicking **Replace & Import**.
+* <u>Note for Hyperledger Composer V0.7 - 0.9</u>: When you deploy your business network to Hyperledger Fabric, the business network name is used as the chaincode ID. If the business network name is changed then a new chaincode ID will be issued and used on deploy. All existing data in blockchain will be lost due to the change. 
+    ![Click Replace & Import](images/Part1_Step9.png)
+
+
+
+
+
+10. ​
