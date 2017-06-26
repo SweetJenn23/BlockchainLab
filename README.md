@@ -217,7 +217,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-12. Click in the **editor** on the right to begin writing your models.
+12. Click in the **editor** on the right to begin writing your models. 
 
     * <u>NOTE:</u> **DO** **NOT** modify the namespace during the lab.
 
