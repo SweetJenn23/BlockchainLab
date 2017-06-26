@@ -215,3 +215,57 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
+
+
+12. Click in the **editor** on the right to begin writing your models.
+
+    * <u>NOTE:</u> **DO** **NOT** modify the namespace during the lab.
+
+      ![Click in the editor](images/Part1_Step12.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+13. On a new line, give your asset `Team` the following attributes.
+
+    * Note: a small "o" is used as a bullet in the model.
+
+    * `o String teamID` — this will be the value that is assigned to your team.
+
+    * `o String teamName`— this could be anything! Come up with something clever!
+
+    * `o Double sensorTemp` — temperature from the Raspberry Pi will be stored here.
+
+    * `o Double thermostatTemp`— you will create a temperature for the thermostat.
+
+    * `o String recommendation`— this will be populated based on the `CompareWeather` transaction.
+
+      ![Team model](images/Part1_Step13.png)
+
+
+
+
+
+
+
+
+
+
+
+14. ​
+
+
+
+
+
+
+
