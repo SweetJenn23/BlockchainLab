@@ -189,4 +189,29 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-10. ​
+10. You should now see the README and project named for stsa-temperature-part1. Read through the README.![stsa-temperature-part1](images/Part1_Step10.png)
+
+
+
+
+
+
+
+
+
+
+
+11. Clilck on **Model File**.
+
+![Click Model File](images/Part1_Step11.png)
+
+
+
+
+
+
+
+
+
+
+
