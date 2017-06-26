@@ -239,7 +239,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
     * Note: a small "o" is used as a bullet in the model.
 
-    * `o String teamID` — this will be the value that is assigned to your team.
+    * `o String teamID` — this will be the value that is assigned to your team. (already there!)
 
     * `o String teamName`— this could be anything! Come up with something clever!
 
@@ -261,7 +261,15 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-14. ​
+14. Now create your first trnsaction model for `SetSensorTemp`. Enter the following attributes:
+
+    * `o String transactionId` — This is created by the fabric. We will never populate this field.
+
+    * `--> asset Team` — This is transaction will need to put data to the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+
+    * `o Double newSensorValue` — This is the variable that will be set by the temperature passed into the transaction from the Raspberry Pi Sens Hat.
+
+      ![Create SetSensorTemp model](images/Part1_Step14.png)
 
 
 
