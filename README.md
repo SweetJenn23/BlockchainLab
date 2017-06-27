@@ -261,11 +261,11 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-14. Now create your first trnsaction model for `SetSensorTemp`. Enter the following attributes:
+14. Now create your first transaction model for `SetSensorTemp`. Enter the following attributes:
 
-    * `o String transactionId` — This is created by the fabric. We will never populate this field.
+    * `o String transactionId` — This is given value by the fabric. We will never populate this field.
 
-    * `--> asset Team` — This is transaction will need to put data to the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+    * `--> asset Team` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
 
     * `o Double newSensorValue` — This is the variable that will be set by the temperature passed into the transaction from the Raspberry Pi Sens Hat.
 
@@ -277,3 +277,157 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
+
+
+
+
+15. Build your `ChangeThermostatTemp` transaction model. Add the following:
+
+    * `o String transactionId` — This is given value by the fabric. We will never populate this field.
+    * `--> asset Team` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+    * `o Double newThermostatValue` — This allows for a new, proposed value to be sent into the transaction. In the logic tab, we will use this value to compare to what the sensor says and decide if the thermostat value should be adjusted.
+
+    ![Create ChangeThermostatTemp model](images/Part1_Step15.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+16. Enter the following values to build your `CompareWeather` transaction model:
+
+    * `o String transactionId` — This is given value by the fabric. We will never populate this field.
+
+    * `--> asset Team` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+
+    * `o Double outsideTemp` — Looking at the [Weather.com API](https://twcservice.eu-gb.mybluemix.net/rest-api/#!/Current_Conditions/v1locobscurrent) for Current Conditions, you can see all of the possible data that the call could return. 
+
+      ![Weater.com API temps](images/Part1_Step16Temps.png)
+
+      Based on the data, it was decided to take the actual outside temperature and the feels like temperature to give a recommendation on thermostat settings. This variable stores the value passed into it via NodeRed from Weather.com for the outside temperature.  The model on the API page shows up whether the data is returned in Celsius or Fahrenheit and its variable type. For this lab, we are working with Celsius as this is the measure of temperature that the Raspberry Pi Sens Hat uses.
+
+    * `o Double feelsLike`— the variable to store the feels_like value from Weather.com.
+
+    ![create CompareWeather model](images/Part1_Step16.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+17. Click on the **Script File** tab.
+
+    ![Click Script File](images/Part1_Step17.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+18. Review the code in the editor. Verify that the variable names match the variable names written in the logic for the transaction. Capitalization does matter! If names don't match, you'll have errors. 
+
+    * Any guesses what the code is doing for each transaction?
+
+    ![Review code](images/Part1_Step18.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+19. Click **Deploy**.
+    * When connected to an actual blockchain, this would create a new contract on the ledger. If you ever modify the project name for any reason, this will create a new contract. The project name is currently used as the chaincode ID for Composer V0.7.3. The project name is viewable and editable on the **About** page.
+
+![Click Deploy](images/Part1_Step19.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+20. You should see a *Deploy Successful* message appear in the upper right corner of the browser.
+
+    ![Deploy Successful message](images/Part1_Step20.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+21. Click on the **Test** tab at the top to try out your code.
+
+![Click Test](images/Part1_Step21.png)
+
+
+
+
+
+
+
+
+
+
+
+22. Notice that in this particular case because we have no participants, the **Test** tab has opened to the **Asset** menu on the left. You must have an asset to be able to run any of the transactions.
+
+    * Click **Create New Asset**.
+
+    ![Click Create New Asset](images/Part1_Step22.png)
+
+
+
+
+
+
+
+
+
+
+
+23. Create your asset by filling in the following information:
+
+* `"teamID": "teamID:**xxx**"` where **xxx** is the team number given to you at STSA.
+* `"teamName":""` — this could be any name you'd like. Be clever! :bowtie:
+* ​
