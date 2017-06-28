@@ -428,6 +428,328 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 23. Create your asset by filling in the following information:
 
-* `"teamID": "teamID:**xxx**"` where **xxx** is the team number given to you at STSA.
+* `"teamID": "teamID:**xxx**"` where ** **xxx** ** is the team number given to you at STSA.
 * `"teamName":""` — this could be any name you'd like. Be clever! :bowtie:
-* ​
+* `"sensorTemp": **0**` — Set ** **0** ** to any value. When you work with NodeRed, temperatures will be in Celsius, but for this it doesn't matter. Just be consistent either way with Fahrenheit or Celsius.
+* `"thermostatTemp": **0** `— Set ** **0** ** to any value. This is initializing your thermostat so pick a value you want to work with.
+* `"recommendation": "" `— Leave this as is.
+* **Make a note somewhere** of the values you used for `sensorTemp` and `thermostatTemp`.
+
+![Create asset](images/Part1_Step23.png)
+
+
+
+
+
+
+
+
+
+
+
+24. Click **Create New**.
+
+![Click Create New](images/Part1_Step24.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+25. Once your **Team** asset is created it should show in the registry as shown below.
+
+    ![Asset registry](images/Part1_Step25.png)
+
+
+
+
+
+
+
+
+
+
+
+26. You're ready to run your first transaction. Click on **Submit Transaction**.
+
+    ![Click Submit Transaction](images/Part1_Step26.png)
+
+
+
+
+
+
+
+
+
+
+
+27. The **Submit Transaction** dialog will open a new window. 
+
+    1. Make sure that the **Transaction Type** is set to `SetSensorTemp`.
+    2. Modify the JSON data.
+       * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`  — enter your team's identifier in place of the value where **xxx** is in the sample JSON data.
+       * `"newSensorValue": 0` — enter a value your sensor could have. 
+    3. Click **Submit**.
+
+    ![Submit SetSensorTemp](images/Part1_Step27.png)
+
+
+
+
+
+
+
+
+
+
+
+28. If you submitted the transaction with your correct team ID, then you should have a transaction showing in your registry with the data you entered in the prior step. Congratulations! You've now completed a transaction. :thumbsup:
+
+![Transaction Registry](images/Part1_Step28.png)
+
+
+
+
+
+
+
+
+
+
+
+29. Verify that `SetSensorTemp` updated the `sensorTemp`value in your asset. Click **Team**.
+
+    ![Click Team](images/Part1_Step29.png)
+
+
+
+
+
+
+
+
+
+30. Check the `sensorTemp` value. Does it have the new value from the `SetSensorTemp` transaction?
+
+![Check sensorTemp value](images/Part1_Step30.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+31. Let's do another transaction. Select **Submit Transaction**.
+
+![Select Submit Transaction](images/Part1_Step21.png)
+
+
+
+
+
+
+
+
+
+
+
+32. This time let's run, `ChangeThermostatTemp`. 
+
+
+1. In the **Transaction Type** drop down, select `ChangeThermostatTemp`.
+
+   ![Select ChangeThermostatTemp](images/Part1_Step32_1.png)
+
+2. Edit the sample JSON for the transaction.
+
+   * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`— change **xxx** to your team ID value.
+   * `"newThermostatValue": 68` — Replace **68** with a value to which you would like to see if you can adjust the thermostat.
+
+3. Click **Submit**.
+
+![Submit ChangeThermostatTemp](images/Part1_Step32.png)
+
+
+
+
+
+
+
+* If you select a temperature for the thermostat that is not within 3 degrees of the `sensorTemp` value, then you will get an error message like the one below. If you get this message, enter another value and click submit.
+
+  ![ChangeThermostatTemp Error Message](images/Part1_Step32_errormsg.png)
+
+* If you do have permission to adjust the thermostat, you will be returned back to the transaction registry where you can see the data you just submitted.
+
+![Successful Transaction](images/Part1_Step32_success.png)
+
+
+
+
+
+
+
+
+
+
+
+33. Verify that the last transaction updated your asset. Click **Team**.
+
+![Click Team](images/Part1_Step33.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+34. Verify that the `thermostatTemp` attribute for your Team has been updated to the value you gave successsfully in the `ChangeThermostatTemp` transaction.
+
+* <u>Note:</u> Look back at step 25 and see that the `thermostatTemp` value was 71 before.
+
+![Verify thermostatTemp value](images/Part1_Step34.png)
+
+
+
+
+
+
+
+
+
+
+
+35. Time to work with the `CompareWeather` transaction. Click **Submit Transaction**.
+
+![Click Submit Transaction](images/Part1_Step35.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+36. Select **CompareWeather** from the *Transaction Type* drop down.
+
+![Select CompareWeather](images/Part1_Step36.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+37. Complete the **CompareWeather** transaction.
+
+    1. Fill in the following fields in the JSON for **CompareWeather**:
+       * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`— Replace **xxx** with your team ID.
+       * `"outsideTemp": 0`— Enter a value for an outside temperature.
+       * `"feelsLike": 0` — Enter a value for what temperature it could feel like outside.
+    2. Click **Submit**.
+
+    ![Complete CompareWeather](images/Part1_Step37.png)
+
+
+
+
+
+
+
+
+
+38. Verify that your transaction is showing in the Transaction Registry.
+
+![Transaction Registry](images/Part1_Step38.png)
+
+
+
+
+
+39. Click on **Team**. 
+
+![Click Team](images/Part1_Step39.png)
+
+
+
+
+
+
+
+
+
+40. Verify there is now a message in the `recommendation`variable in your Team asset and that the `thermostatValue` has been updated to the recommended value.
+    * <u>Note:</u> This application was developed for temperatures in Celsius. The CompareWeather transaction and recommendation result are based on Celsius. If you use Fahrenheit, you'll see results like below.
+
+![Team asset recommendationv value](images/Part1_Step40.png)
+
+
+
+
+
+
+
+
+
+
+
+41. Continue testing your code for all scenarios to understand what your contract(s) can do. The hints to the remaining scenarios are as follows: (Yes, you'll have to look at the Script File under the Define Tab to figure out the criteria.)
+
+    1. ChangeThemostatTemp:
+       - [ ] A successful transaction where the `thermostatValue` is updated in the Team asset.
+       - [ ] An error message in the *Submit Transaction* window advising you do not have permission to adjust the thermostat.
+    2. CompareWeather:
+       -[ ] A transaction based on `outsideTemp` values where it is really hot.
+       -[ ] A transaction based on `outsideTemp` values where it is quite nice.
+       -[ ] A transaction based on `outsideTemp` values where it is cold.
+       -[ ] A transaction based on `feelsLike` values where it hot.
+       -[ ] A transaction based on `feelsLike` values where it is quite nice.
+       -[ ] A transaction based on `feelsLike` values where it is cold.
+
+    * <u>Note:</u> You should verify that your asset values have been updated appropriately after each transaction like you did in prior steps.
+
+
+
+
+
+
+
+### End of Part 1
+
+
+
+
+
+
+
