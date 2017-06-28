@@ -81,6 +81,9 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 4. In a browser, go to the Composer Playground running on Bluemix. [https://composer-playground.mybluemix.net/editor](https://composer-playground.mybluemix.net/editor)
+
+   * <u>Note:</u> You will need to view the browser in Full Screen (fully expanded) mode to be able to access everything and prevent issues with inability to scroll on certain screens.
+
    ![Open Composer Playground in a browser](images/Part1_Step4.png)
 
    ​
@@ -125,7 +128,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
        ​
 
-     * Under the Test tab, you will be able to interact with your code after you've delected **Deploy** on the Define tab. As shown below, you see that you can create a participant based on specifications from your model file. We won't explore through more of these right now because we will be working with them closely later in the lab.
+     * Under the Test tab, you will be able to interact with your code after you've selected **Deploy** on the Define tab. As shown below, you see that you can create a participant based on specifications from your model file. We won't explore through more of these right now because we will be working with them closely later in the lab.
 
        ![Example of Testing code](images/Part1_Step4SampleParticipant.png)
 
