@@ -128,7 +128,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
        ​
 
-     * Under the Test tab, you will be able to interact with your code after you've selected **Deploy** on the Define tab. As shown below, you see that you can create a participant based on specifications from your model file. We won't explore through more of these right now because we will be working with them closely later in the lab.
+     * <u>Note:</u> Under the Test tab, you will be able to interact with your code after you've selected **Deploy** on the Define tab. As shown below, you see that you can create a participant based on specifications from your model file. We won't explore through more of these right now because we will be working with them closely later in the lab.
 
        ![Example of Testing code](images/Part1_Step4SampleParticipant.png)
 
@@ -140,13 +140,13 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
        ​
 
-     * The credentials that Composer Playground is using to access blockchain are stored here. From here you can also issue new credentials if you have authority.
+     * <u>Note:</u> The credentials that Composer Playground is using to access blockchain are stored here. From here you can also issue new credentials if you have authority.
 
        ![Admin Sample](images/Part1_Step4AdminSample.png)
 
        ​
 
-     * The Composer Playground running on Bluemix is not currently connected to a blockchain environment. That's okay! The browser will simulate how things would work if connected to blockchain. In a Composer Playground connected to a blockchain, there will be a **globe** icon instead of **Get local version**. In that tab, you can create a connection profile with issued credentials to access specific blockchain networks where you would deploy your business network definition and interact with it.
+     * <u>Note:</u> The Composer Playground running on Bluemix is not currently connected to a blockchain environment. That's okay! The browser will simulate how things would work if connected to blockchain. In a Composer Playground connected to a blockchain, there will be a **globe** icon instead of **Get local version**. In that tab, you can create a connection profile with issued credentials to access specific blockchain networks where you would deploy your business network definition and interact with it.
 
        ![Connection example](images/Part1_Step4Globe.png)
 
@@ -185,14 +185,13 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 9. On the warning box, _Current definition will be replaced_, accept the warning by clicking **Replace & Import**.
-* <u>Note for Hyperledger Composer V0.7 - 0.9</u>: When you deploy your business network to Hyperledger Fabric, the business network name is used as the chaincode ID. If the business network name is changed then a new chaincode ID will be issued and used on deploy. All existing data in blockchain will be lost due to the change. 
-    ![Click Replace & Import](images/Part1_Step9.png)
+   * <u>Note for Hyperledger Composer V0.7 - 0.9</u>: When you deploy your business network to Hyperledger Fabric, the business network name is used as the chaincode ID. If the business network name is changed then a new chaincode ID will be issued and used on deploy. All existing data in blockchain will be lost due to the change. 
+![Click Replace & Import](images/Part1_Step9.png)
 
 
 
 
-
-10. You should now see the README and project named for stsa-temperature-part1. Read through the README.![stsa-temperature-part1](images/Part1_Step10.png)
+10. You should now see the README and project named for stsa-temperature-part1. **Read through the README.**![stsa-temperature-part1](images/Part1_Step10.png)
 
 
 
@@ -367,7 +366,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 19. Click **Deploy**.
-    * When connected to an actual blockchain, this would create a new contract on the ledger. If you ever modify the project name for any reason, this will create a new contract. The project name is currently used as the chaincode ID for Composer V0.7.3. The project name is viewable and editable on the **About** page.
+    * <u>Note:</u> When connected to an actual blockchain this would create a new contract on the ledger. If you ever modify the project name for any reason, this will create a new contract. The project name is currently used as the chaincode ID for Composer V0.7.3. The project name is viewable and editable on the **About** page.
 
 ![Click Deploy](images/Part1_Step19.png)
 
