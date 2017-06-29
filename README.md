@@ -2,7 +2,7 @@
 # Workshop 3: Blockchain
 
 ## Architecture
- In this lab, we continue building on the existing architecture. In prior labs, you configured your Raspberry Pi with Sens HAT to talk to Watson IoT Foundation running on Bluemix. You grew your interaction by integrating NodeRed and the Watson Conversation service also both running on Bluemix. Your cloud environment will expand to a hybrid cloud by talking with a blockchain network. The Hyperledger V1 Fabric is running on a private server in a secured network. 
+In this lab, we continue building on the existing architecture. In prior labs, you configured your Raspberry Pi with Sens HAT to talk to Watson IoT Foundation running on Bluemix. You grew your interaction by integrating NodeRed and the Watson Conversation service also both running on Bluemix. Your cloud environment will expand to a hybrid cloud by talking with a blockchain network. The Hyperledger V1 Fabric is running on a private server in a secured network. 
 
 In this lab, NodeRed will communicate with the Hyperledger Fabric through APIs. NodeRed will also facilitate communication between the ledger and [Weather.com](https://twcservice.mybluemix.net/rest-api/).
 
@@ -22,9 +22,9 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 **block:** An ordered set of transactions that is cryptographically linked to the preceding block(s) on a channel.
 
-**chain:** The chain of the ledger is a transaction log structured as hash-linked blocks of transactions. Peers receive blocks of transactions from the ordering service, mark the block?s transactions as valid or invalid based on endorsement policies and concurrency violations, and append the block to the hash chain on the peer?s file system.
+**chain:** The chain of the ledger is a transaction log structured as hash-linked blocks of transactions. Peers receive blocks of transactions from the ordering service, mark the block's transactions as valid or invalid based on endorsement policies and concurrency violations, and append the block to the hash chain on the peer's file system.
 
-**Hyperledger Fabric:** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within the Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
+**Hyperledger Fabric:** A particular implementation of blockchain technology. This implementation is built for business use. It is an open source project lead by the Linux Foundation. It is one project within Hyperledger Project. For more information, visit the [Hyperledger Project page](http://www.hyperledger.org/).
 
 **_Note:_** You will see blockchain, ledger, Hyperledger (referring to the fabric) and fabric used interchangeably. They are all referring to the concept of blockchain.
 
@@ -36,7 +36,7 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 **business network artifact:** When using Composer, the defined network of participants, assets and transactions can be exported to a packaging of files known as a business network artifact (.bna). 
 
-**chaincode:** code written for blockchain. Typically this an application written in Go or NodeSDK. It now can also mean the same thing as your .bna. When you create your network and supporting logic in Composer, the entire package becomes your chaincode. 
+**chaincode:** code written for blockchain. Typically this is an application written in Go or NodeSDK. It now can also mean the same thing as your .bna. When you create your network and supporting logic in Composer, the entire package becomes your chaincode. 
 
 **_Note:_** You may see chaincode, smart contract and transaction (in relation to Composer) used interchangably. They can refer to the same thing conceptually. In reality, chaincode == the business network artifact from Composer, transaction defines what is in a transaction (e.g. data, assets) and a smart contract is really the logic that is written to make a transaction actually happen in Composer.
 
@@ -156,7 +156,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-5. Scroll down on the left side of the Composer Playground and select **Import/Replace**.
+5. Click back to the **Define** tab and scroll down on the left side of the Composer Playground to select **Import/Replace**.
    ![Select Import/Replace](images/Part1_Step5.png)
 
 
@@ -186,7 +186,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 9. On the warning box, _Current definition will be replaced_, accept the warning by clicking **Replace & Import**.
    * <u>Note for Hyperledger Composer V0.7 - 0.9</u>: When you deploy your business network to Hyperledger Fabric, the business network name is used as the chaincode ID. If the business network name is changed then a new chaincode ID will be issued and used on deploy. All existing data in blockchain will be lost due to the change. 
-![Click Replace & Import](images/Part1_Step9.png)
+     ![Click Replace & Import](images/Part1_Step9.png)
 
 
 
@@ -239,6 +239,30 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 13. On a new line, give your asset `Team` the following attributes.
 
+    * ​<u>Explanation: </u> In this lab, the asset type is "Team". The attribute name of the Team asset for transactions is "asset". You could actually change the attribute name to be something else such as :star: "DallasCowboys" :star: when you create your own code. In that case it would look something like:
+
+      ```
+
+      ```
+
+      DallasCowboys Team identified by teamID{
+
+        o String teamID
+
+        o String teamName
+
+        o Double sensorTemp
+
+        o Double thermostatTemp
+
+        o String recommendation
+
+      }
+
+      ```
+
+      ```
+
     * Note: a small "o" is used as a bullet in the model.
 
     * `o String teamID` — this will be the value that is assigned to your team. (already there!)
@@ -267,7 +291,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
     * `o String transactionId` — This is given value by the fabric. We will never populate this field.
 
-    * `--> asset Team` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+    * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
 
     * `o Double newSensorValue` — This is the variable that will be set by the temperature passed into the transaction from the Raspberry Pi Sens Hat.
 
@@ -286,7 +310,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 15. Build your `ChangeThermostatTemp` transaction model. Add the following:
 
     * `o String transactionId` — This is given value by the fabric. We will never populate this field.
-    * `--> asset Team` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+    * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
     * `o Double newThermostatValue` — This allows for a new, proposed value to be sent into the transaction. In the logic tab, we will use this value to compare to what the sensor says and decide if the thermostat value should be adjusted.
 
     ![Create ChangeThermostatTemp model](images/Part1_Step15.png)
@@ -307,7 +331,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
     * `o String transactionId` — This is given value by the fabric. We will never populate this field.
 
-    * `--> asset Team` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
+    * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
 
     * `o Double outsideTemp` — Looking at the [Weather.com API](https://twcservice.eu-gb.mybluemix.net/rest-api/#!/Current_Conditions/v1locobscurrent) for Current Conditions, you can see all of the possible data that the call could return. 
 
@@ -598,6 +622,10 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 * If you do have permission to adjust the thermostat, you will be returned back to the transaction registry where you can see the data you just submitted.
 
 ![Successful Transaction](images/Part1_Step32_success.png)
+
+* If for some reason you forget to modify your teamID value or update it to the wrong value, you will see an error like the one shown below. Check your value for teamID and try again.
+
+![Asset does not exist error message](images/Part1_Step33AssetError.png)
 
 
 
