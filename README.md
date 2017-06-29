@@ -255,7 +255,6 @@ In this section of the lab you will be working with Hyperledger Composer to crea
         o String recommendation
 
       }
-
       ```
 
     * Note: a small "o" is used as a bullet in the model.
@@ -514,14 +513,18 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 27. The **Submit Transaction** dialog will open a new window. 
 
-    1. Make sure that the **Transaction Type** is set to `SetSensorTemp`.
-    2. Modify the JSON data.
-       * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`  — enter your team's identifier in place of the value where **xxx** is in the sample JSON data.
-       * `"newSensorValue": 0` — enter a value your sensor could have. 
-    3. Click **Submit**.
+      a.  Make sure that the **Transaction Type** is set to `SetSensorTemp`.
 
-    ![Submit SetSensorTemp](images/Part1_Step27.png)
+      b.  Modify the JSON data.
 
+    * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`  — enter your team's identifier in 		place of the value where **xxx** is in the sample JSON data.
+
+
+    * `"newSensorValue": 0` — enter a value your sensor could have. 
+
+       c.  Click **Submit**.
+
+![Submit SetSensorTemp](images/Part1_Step27.png)
 
 
 
@@ -698,11 +701,13 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 37. Complete the **CompareWeather** transaction.
 
-    1. Fill in the following fields in the JSON for **CompareWeather**:
-       * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`— Replace **xxx** with your team ID.
-       * `"outsideTemp": 0`— Enter a value for an outside temperature.
-       * `"feelsLike": 0` — Enter a value for what temperature it could feel like outside.
-    2. Click **Submit**.
+    a. Fill in the following fields in the JSON for **CompareWeather**:
+
+    * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`— Replace **xxx** with your team ID.
+    * `"outsideTemp": 0`— Enter a value for an outside temperature.
+    * `"feelsLike": 0` — Enter a value for what temperature it could feel like outside.
+
+    b. Click **Submit**.
 
     ![Complete CompareWeather](images/Part1_Step37.png)
 
