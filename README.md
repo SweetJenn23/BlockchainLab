@@ -242,18 +242,31 @@ In this section of the lab you will be working with Hyperledger Composer to crea
     * ​<u>Explanation: </u> In this lab, the asset type is "Team". The attribute name of the Team asset for transactions is "asset". You could actually change the attribute name to be something else such as :star: "DallasCowboys" :star: when you create your own code. In that case it would look something like:
 
       ```
-      DallasCowboys Team identified by teamID{
-
+      /**This remains unchanged.*/
+      asset Team identified by teamID{
+      //create your Team asset model
         o String teamID
-
         o String teamName
-
         o Double sensorTemp
-
         o Double thermostatTemp
-
         o String recommendation
+      }
 
+      /**In this case --> Team asset becomes --> Team DallasCowboys.*/
+      transaction SetSensorTemp identified by transactionId{
+        //create your SetSensorTemp transaction model
+        o String transactionId
+        --> Team DallasCowboys
+        o Double newSensorValue
+      }
+
+      /**In our function we would need to replace the word 'asset' with 'DallasCowboys'.*/
+      function onSetSensorTemp(setSensorTemp){
+        setSensorTemp.DallasCowboys.sensorTemp = setSensorTemp.newSensorValue;
+        return getAssetRegistry('org.acme.sample.Team')
+          .then(function(assetRegistry){
+            return assetRegistry.update(setSensorTemp.DallasCowboys);
+          });
       }
       ```
 
