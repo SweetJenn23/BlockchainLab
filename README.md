@@ -260,7 +260,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
         o Double newSensorValue
       }
 
-      /**In our function we would need to replace the word 'asset' with 'DallasCowboys'.*/
+      /**In our corresponding transaction function we would need to replace the word 'asset' with 'DallasCowboys' to match our model from above.*/
       function onSetSensorTemp(setSensorTemp){
         setSensorTemp.DallasCowboys.sensorTemp = setSensorTemp.newSensorValue;
         return getAssetRegistry('org.acme.sample.Team')
