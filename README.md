@@ -242,9 +242,6 @@ In this section of the lab you will be working with Hyperledger Composer to crea
     * ​<u>Explanation: </u> In this lab, the asset type is "Team". The attribute name of the Team asset for transactions is "asset". You could actually change the attribute name to be something else such as :star: "DallasCowboys" :star: when you create your own code. In that case it would look something like:
 
       ```
-
-      ```
-
       DallasCowboys Team identified by teamID{
 
         o String teamID
@@ -258,8 +255,6 @@ In this section of the lab you will be working with Hyperledger Composer to crea
         o String recommendation
 
       }
-
-      ```
 
       ```
 
