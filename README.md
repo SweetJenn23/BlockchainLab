@@ -513,16 +513,16 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 27. The **Submit Transaction** dialog will open a new window. 
 
-      a.  Make sure that the **Transaction Type** is set to `SetSensorTemp`.
+    a.  Make sure that the **Transaction Type** is set to `SetSensorTemp`.
 
-      b.  Modify the JSON data.
+    b.  Modify the JSON data.
 
     * `"asset": "resource:org.acme.sample.Team#teamID:xxx"`  — enter your team's identifier in 		place of the value where **xxx** is in the sample JSON data.
 
 
-    * `"newSensorValue": 0` — enter a value your sensor could have. 
+    * `"newSensorValue": 0` — enter a value your sensor could have.
 
-       c.  Click **Submit**.
+    c.  Click **Submit**.
 
 ![Submit SetSensorTemp](images/Part1_Step27.png)
 
