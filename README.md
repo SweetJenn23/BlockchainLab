@@ -365,7 +365,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-18. Review the code in the editor. Verify that the variable names match the variable names written in the logic for the transaction. Capitalization does matter! If names don't match, you'll have errors. 
+18. Review the code in the editor. ******Verify that your variable names match the variable names here.****  Capitalization does matter! If names don't match, you'll have errors. 
 
     * Any guesses what the code is doing for each transaction?
 
@@ -446,7 +446,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-23. Create your asset by filling in the following information:
+23. Create an example asset to test your code by filling in the following information:
 
 * `"teamID": "teamID:**xxx**"` where ** **xxx** ** is the team number given to you at STSA.
 * `"teamName":""` — this could be any name you'd like. Be clever! :bowtie:
