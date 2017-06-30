@@ -6,7 +6,7 @@ In this lab, we continue building on the existing architecture. In prior labs, y
 
 In this lab, NodeRed will communicate with the Hyperledger Fabric through APIs. NodeRed will also facilitate communication between the ledger and [Weather.com](https://twcservice.mybluemix.net/rest-api/).
 
-![Lab Architecture](images/BlockchainArchitecture/Slide1.png)
+![Lab Architecture](images/BlockchainArchitecture.png)
 
 ## Application Overview
 The blockchain workshop is intended to give you a basic understanding of how a developer would interact with Hyperledger Fabric. In this workshop you will use a Browser based UI to modify chaincode, test your code and deploy your changes. You will also learn how tooling can take the code and generate API to allow for application integration through a REST-ful interface. 
