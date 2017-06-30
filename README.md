@@ -773,12 +773,12 @@ In this section of the lab you will be working with Hyperledger Composer to crea
        - [ ] A successful transaction where the `thermostatValue` is updated in the Team asset.
        - [ ] An error message in the *Submit Transaction* window advising you do not have permission to adjust the thermostat.
     2. CompareWeather:
-       -[ ] A transaction based on `outsideTemp` values where it is really hot.
-       -[ ] A transaction based on `outsideTemp` values where it is quite nice.
-       -[ ] A transaction based on `outsideTemp` values where it is cold.
-       -[ ] A transaction based on `feelsLike` values where it hot.
-       -[ ] A transaction based on `feelsLike` values where it is quite nice.
-       -[ ] A transaction based on `feelsLike` values where it is cold.
+       - [ ] A transaction based on `outsideTemp` values where it is really hot.
+       - [ ] A transaction based on `outsideTemp` values where it is quite nice.
+       - [ ] A transaction based on `outsideTemp` values where it is cold.
+       - [ ] A transaction based on `feelsLike` values where it hot.
+       - [ ] A transaction based on `feelsLike` values where it is quite nice.
+       - [ ] A transaction based on `feelsLike` values where it is cold.
 
     * <u>Note:</u> You should verify that your asset values have been updated appropriately after each transaction like you did in prior steps.
 
