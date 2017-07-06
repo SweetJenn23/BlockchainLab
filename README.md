@@ -790,6 +790,637 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 ### End of Part 1
 
+## Part 2
+
+Okay we are going to take the work from the prior 3 labs and connect them to communicate with Blockchain. To do this we are going to have you follow the simple steps.
+
+### Create Blockchain Flow
+1. Select the JSON below 
+
+
+```JSON
+[
+    {
+        "id": "88b235f8.e32de8",
+        "type": "http request",
+        "z": "86c55bf8.b87818",
+        "name": "Add Block",
+        "method": "POST",
+        "ret": "obj",
+        "url": "http://cap-sg-prd-5.integration.ibmcloud.com:16583/api/org.acme.sample.SetSensorTemp",
+        "tls": "",
+        "x": 620.0000267028809,
+        "y": 261.99999046325684,
+        "wires": [
+            [
+                "70f9b5a5.690dfc"
+            ]
+        ]
+    },
+    {
+        "id": "b6bb3ef4.0a6f",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "Blockchain",
+        "func": "d = msg.payload.d.temperature;\ntid = global.get('teamName');\ntime = new Date().toISOString();\nmsg.payload = {\n \"$class\": \"org.acme.sample.SetSensorTemp\",\n  \"asset\": \"resource:org.acme.sample.Team#teamid:\"+tid,\n  \"newSensorValue\": d,\n  \"timestamp\": time\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 387.0000181198121,
+        "y": 261.0000057220459,
+        "wires": [
+            [
+                "88b235f8.e32de8"
+            ]
+        ]
+    },
+    {
+        "id": "ebac3cd0.e77cc",
+        "type": "ui_text_input",
+        "z": "86c55bf8.b87818",
+        "name": "",
+        "label": "TeamName",
+        "group": "d80e4b17.46bc",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "mode": "text",
+        "delay": "500",
+        "topic": "",
+        "x": 473.6666793823242,
+        "y": 421.0000057220459,
+        "wires": [
+            [
+                "596dd79f.f91808"
+            ]
+        ]
+    },
+    {
+        "id": "f3f4172d.aafcf8",
+        "type": "http request",
+        "z": "86c55bf8.b87818",
+        "name": "Set Team Name",
+        "method": "POST",
+        "ret": "obj",
+        "url": "http://cap-sg-prd-5.integration.ibmcloud.com:16583/api/org.acme.sample.Team",
+        "tls": "",
+        "x": 772.0555839538574,
+        "y": 586.2222309112549,
+        "wires": [
+            [
+                "72c526e9.2ec738"
+            ]
+        ]
+    },
+    {
+        "id": "596dd79f.f91808",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "setTeamname",
+        "func": "n = msg.payload;\nglobal.set('teamName',n);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690.6666793823242,
+        "y": 422.0000057220459,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e760194.996ede",
+        "type": "weather_insights",
+        "z": "86c55bf8.b87818",
+        "name": "Current Weather",
+        "host": "twcservice.mybluemix.net",
+        "service": "/observations.json",
+        "geocode": "",
+        "units": "m",
+        "language": "",
+        "x": 561.6666793823242,
+        "y": 685.0000057220459,
+        "wires": [
+            [
+                "8783cd77.a8a8d"
+            ]
+        ]
+    },
+    {
+        "id": "b593bba9.1887b8",
+        "type": "inject",
+        "z": "86c55bf8.b87818",
+        "name": "",
+        "topic": "",
+        "payload": "41.8585185,-88.372492",
+        "payloadType": "str",
+        "repeat": "240",
+        "crontab": "",
+        "once": true,
+        "x": 273.7777862548828,
+        "y": 684.9999732971191,
+        "wires": [
+            [
+                "1e760194.996ede"
+            ]
+        ]
+    },
+    {
+        "id": "301ea710.563aa8",
+        "type": "ui_button",
+        "z": "86c55bf8.b87818",
+        "name": "",
+        "group": "f379171f.517258",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Change Thermostat",
+        "color": "Light Blue",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 250.66667938232422,
+        "y": 810.0000057220459,
+        "wires": [
+            [
+                "bf6bdf89.9b7ef"
+            ]
+        ]
+    },
+    {
+        "id": "bf6bdf89.9b7ef",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "ChangeThermo",
+        "func": "tid = global.get('teamName');\ntime = new Date().toISOString();\nthermo = global.get('TempThermostat');\nasset = \"resource:org.acme.sample.Team#teamid:\"+tid,\n\nmsg.payload = {\n  \"$class\": \"org.acme.sample.ChangeThermostatTemp\",\n   \"asset\": asset,\n  \"newThermostatValue\": thermo,\n  \"timestamp\": time\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 568.6666793823242,
+        "y": 812.0000057220459,
+        "wires": [
+            [
+                "95bfcff6.7c1f3"
+            ]
+        ]
+    },
+    {
+        "id": "95bfcff6.7c1f3",
+        "type": "http request",
+        "z": "86c55bf8.b87818",
+        "name": "Change Thermostat",
+        "method": "POST",
+        "ret": "obj",
+        "url": "http://cap-sg-prd-5.integration.ibmcloud.com:16583/api/org.acme.sample.ChangeThermostatTemp",
+        "tls": "",
+        "x": 896.5555877685547,
+        "y": 815.111123085022,
+        "wires": [
+            [
+                "ddb4c7c0.9c1a08"
+            ]
+        ]
+    },
+    {
+        "id": "e17c06c5.156cf8",
+        "type": "ui_button",
+        "z": "86c55bf8.b87818",
+        "name": "",
+        "group": "d80e4b17.46bc",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Get Recommendation",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 325.44445419311523,
+        "y": 1004.5556011199951,
+        "wires": [
+            [
+                "12161025.d27bc"
+            ]
+        ]
+    },
+    {
+        "id": "12161025.d27bc",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "getRecommendation",
+        "func": "tid = global.get('teamName');\ntime = new Date().toISOString();\nweather = global.get('weather-observation');\nasset = \"resource:org.acme.sample.Team#teamid:\"+tid,\ntransid = global.get('lastTransID');\nmsg.payload = {\n  \"$class\": \"org.acme.sample.CompareWeather\",\n  \"transactionId\": transid,\n  \"asset\": asset,\n  \"outsideTemp\": weather.temp,\n  \"feelsLike\": weather.feels_like,\n  \"timestamp\": time\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 569.4444541931152,
+        "y": 1004.5556011199951,
+        "wires": [
+            [
+                "8440aa21.e72a38"
+            ]
+        ]
+    },
+    {
+        "id": "8440aa21.e72a38",
+        "type": "http request",
+        "z": "86c55bf8.b87818",
+        "name": "CompareWeather",
+        "method": "POST",
+        "ret": "obj",
+        "url": "http://cap-sg-prd-5.integration.ibmcloud.com:16583/api/org.acme.sample.CompareWeather",
+        "tls": "",
+        "x": 809.4444541931152,
+        "y": 1004.5556011199951,
+        "wires": [
+            [
+                "73180c15.bf0fb4",
+                "6a148c0a.fc5ec4"
+            ]
+        ]
+    },
+    {
+        "id": "73180c15.bf0fb4",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "getTeamID",
+        "func": "team = global.get('teamName');\nmsg = {};\nmsg.topic = \"teamid%3A\"+team;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1028.4444541931152,
+        "y": 1004.5556011199951,
+        "wires": [
+            [
+                "29cf80c2.b69d1"
+            ]
+        ]
+    },
+    {
+        "id": "29cf80c2.b69d1",
+        "type": "http request",
+        "z": "86c55bf8.b87818",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://cap-sg-prd-5.integration.ibmcloud.com:16583/api/org.acme.sample.Team/{{{topic}}}",
+        "tls": "",
+        "x": 1222.4444541931152,
+        "y": 1004.5556011199951,
+        "wires": [
+            [
+                "886597fc.9204f8"
+            ]
+        ]
+    },
+    {
+        "id": "e318a794.455e58",
+        "type": "ui_toast",
+        "z": "86c55bf8.b87818",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 778.6666793823242,
+        "y": 503.0000057220459,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d78ff7d.0a0f9",
+        "type": "inject",
+        "z": "86c55bf8.b87818",
+        "name": "check team name",
+        "topic": "Team Name is not set. Please add your team name and press the add team name button",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 205.66667938232422,
+        "y": 516.0000057220459,
+        "wires": [
+            [
+                "70aefc55.90b814",
+                "26c04f9c.e0f18"
+            ]
+        ]
+    },
+    {
+        "id": "70aefc55.90b814",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "locatedTeamName",
+        "func": "team = global.get(\"teamName\");\nif (team){\n    msg.topic=\"Team Name is set\"\n    msg.payload = team;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560.6666793823242,
+        "y": 502.0000057220459,
+        "wires": [
+            [
+                "e318a794.455e58"
+            ]
+        ]
+    },
+    {
+        "id": "66bf218.1dc2ae",
+        "type": "ui_button",
+        "z": "86c55bf8.b87818",
+        "name": "",
+        "group": "d80e4b17.46bc",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Add Team Name",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 249.66667938232422,
+        "y": 586.0000057220459,
+        "wires": [
+            [
+                "fe51230e.02ef4"
+            ]
+        ]
+    },
+    {
+        "id": "fe51230e.02ef4",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "getTeamName",
+        "func": "\nn = global.get('teamName');\nmsg.payload = {\n  \"$class\": \"org.acme.sample.Team\",\n  \"teamID\": \"teamid:\"+n,\n  \"teamName\": n,\n  \"sensorTemp\":0,\n  \"thermostatTemp\":0,\n  \"recommendation\":\"none\"\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 506.1666717529297,
+        "y": 586.5555782318115,
+        "wires": [
+            [
+                "f3f4172d.aafcf8"
+            ]
+        ]
+    },
+    {
+        "id": "26c04f9c.e0f18",
+        "type": "function",
+        "z": "86c55bf8.b87818",
+        "name": "Find Team Name",
+        "func": "n = global.get('teamName');\nif (n){\n    msg.payload = n;\n}else{\n    msg.payload=\"Please Add Team Name\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 248.66667938232422,
+        "y": 424.0000057220459,
+        "wires": [
+            [
+                "ebac3cd0.e77cc"
+            ]
+        ]
+    },
+    {
+        "id": "ad1a7b10.733ff8",
+        "type": "ui_text",
+        "z": "86c55bf8.b87818",
+        "group": "d80e4b17.46bc",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Ask Block Chain for Recommendation",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 298.6666793823242,
+        "y": 915.0000057220459,
+        "wires": []
+    },
+    {
+        "id": "8783cd77.a8a8d",
+        "type": "link out",
+        "z": "86c55bf8.b87818",
+        "name": "Weather",
+        "links": [
+            "1e684a8f.b97ac5",
+            "30a06d42.4fc062"
+        ],
+        "x": 732.7222900390625,
+        "y": 686.2222089767456,
+        "wires": []
+    },
+    {
+        "id": "70f9b5a5.690dfc",
+        "type": "link out",
+        "z": "86c55bf8.b87818",
+        "name": "Blockchain add block",
+        "links": [
+            "26579818.2a28c8"
+        ],
+        "x": 819.2777233123779,
+        "y": 261.9999942779541,
+        "wires": []
+    },
+    {
+        "id": "72c526e9.2ec738",
+        "type": "link out",
+        "z": "86c55bf8.b87818",
+        "name": "Blockchain - teamname",
+        "links": [
+            "26579818.2a28c8",
+            "95f66de6.73289"
+        ],
+        "x": 936.6111211776733,
+        "y": 585.1110534667969,
+        "wires": []
+    },
+    {
+        "id": "ddb4c7c0.9c1a08",
+        "type": "link out",
+        "z": "86c55bf8.b87818",
+        "name": "Blockchain change thermo",
+        "links": [
+            "26579818.2a28c8",
+            "691d8fae.cc6dd"
+        ],
+        "x": 1064.388876914978,
+        "y": 816.2221736907959,
+        "wires": []
+    },
+    {
+        "id": "6a148c0a.fc5ec4",
+        "type": "link out",
+        "z": "86c55bf8.b87818",
+        "name": "Blockchain Compare",
+        "links": [
+            "26579818.2a28c8"
+        ],
+        "x": 937.7222213745117,
+        "y": 1097.333257675171,
+        "wires": []
+    },
+    {
+        "id": "886597fc.9204f8",
+        "type": "link out",
+        "z": "86c55bf8.b87818",
+        "name": "Blockchain recommendation",
+        "links": [
+            "26579818.2a28c8",
+            "34c327fb.be62a8"
+        ],
+        "x": 1351.0554733276367,
+        "y": 1086.222173690796,
+        "wires": []
+    },
+    {
+        "id": "29589c.35d02764",
+        "type": "link in",
+        "z": "86c55bf8.b87818",
+        "name": "IoT Event - Temperature",
+        "links": [
+            "2dcfad9.1e84952",
+            "f8160c87.24af3"
+        ],
+        "x": 174.33337783813477,
+        "y": 261.33332443237305,
+        "wires": [
+            [
+                "b6bb3ef4.0a6f"
+            ]
+        ]
+    },
+    {
+        "id": "d80e4b17.46bc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Blockchain",
+        "tab": "7279f7c0.41084",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "f379171f.517258",
+        "type": "ui_group",
+        "z": "",
+        "name": "Thermostat",
+        "tab": "7279f7c0.41084",
+        "order": 4,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "7279f7c0.41084",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 2
+    }
+]
+```
+
+Paste it into NodeRed, by clicking on the menu icon in the upper right corner.
+
+![menu](images/node-red-menu.png)
+
+Select Import -> Clipboard
+
+![menu](images/node-red-menu-import-clipboard.png)
+
+Paste then in the editor. Make sure to select "new flow" button. This will make sure a new flow is created.
+
+![import editor](images/node-red-menu-import-editor.png)
+
+You should now have a new flow with the label of "Blockchain"
+
+2. Update Bluemix IoT Flow
+
+We are now going to update the link node on the "Bluemix IoT Flow" tab. Remember, previously we updated the link node to send updates to the dashboard. Now we are going to also have the "Iot Environment" events sent to the newly created "Blockchain" flow.
+
+![link node](images/iot-flow-link-node.png)
+
+We do this by double clicking on the **Link Node**. 
+
+![link node](images/iot-flow-link-node-editor.png)
+
+Make sure all three check boxes are checked. "IoT Event - Temperature" is the new box that needs to be checked. This will send the IoT events to the Blockchain flow.
+
+3. Update Weather Insight node
+
+Double click on the **Current weather** node.
+
+![current weather node](images/blockchain-flow-currentweather-node.png)
+
+You should now see the node editor for the weather insights node.
+
+![current weather node editor](images/blockchain-flow-currentweather-node-editor.png)
+
+Similarly like with the hybrid lab, you need to paste your username and password in to the appropriate fields. Also make sure the **service** is "Current Observations".
+You can click **Done** when completed.
+
+4. Deploy the changes by clicking ont the **Deploy** button.
+![deploy button](images/blockchain-flow-deploy-button.png)
+
+5. Go to the Dashboard page
+
+You should see that data is now flowing to all of the widgets on the dashboard page. Though you will see some error messages. This is because we have to register with blockchain your team name. If you remember from the lab, you need to create a new "Team Asset". 
+
+We do this by typing our team name in the entry field and then clicking on **Add Team Name** button.
+
+![add team button](images/dashboard-add-team-button.png)
+
+You should see a status message indicate the team name was added successfully.
+
+![deploy button](images/dashboard-status-team-added.png)
+
+Now your IoT events are will be added to blockchain under your asset name. You should see the counter for blocks increment as your IoT events are being sent.
+This is important, because, in the next steps we are going to validate try to make some changes and blockchain will help in the process.
+
+6. Change the Thermostat
+
+In this step we are going to change the value of the "Thermostat". The way you do this is by clicking on the **Thermostat Value** slider and move it. 
+
+![thermo slider](images/dashboard-thermo-slider.png)
+
+You will notice as you change the slide, the "Thermostat" gauge underneath it also changes. 
+Move the slider to any value you choose. Once you are comfortable with your choice you can 
+send a request to blockchain, to determine if your choice is valid, based on the blockchain contract. 
+This is done by clicking the **Change Thermostat** button.
+
+![change thermo button](images/dashboard-changethermo-button.png)
+
+Now depending on the value you chose, your temperature my be allowed, or reset to its prior value.
+The logic within blockchain is to allow the thermostat to be within plus/minus three degrees of
+your last stored temperature block. So look at your "ense Hat Temperature" value on the screen 
+and then change your thermostat to be within the allowed value range.
+
+**Invalid Change**
+![change thermo bad](images/dashboard-change-thermo-bad.png)
+
+
+**Valid Change**
+![change thermo good](images/dashboard-change-thermo-good.png)
+
+7. Blockchain Recommendation
+
+In this last step we are sending a request to blockchain to get a recommendation on the appropriate 
+setting for the Thermostat. The smart contract within blockchain will provide you with the 
+changes needed and execute the change on your behalf. Click on the **Get Recommendation** button.
+
+![recommendation button](images/dashboard-recommendation-button.png)
+
+Block chain uses the "Outside Temperature" values in addition to your latest Iot temperature to make a recommendation for you Thermostat.
+
+![recommendation result](images/dashboard-recommendation-result.png)
+
+As you can see the "Thermostat" changed from **36 Degrees to 20 Degrees**.
+
+This concludes the Blockchain Lab. We hope you had fun.
 
 
 
