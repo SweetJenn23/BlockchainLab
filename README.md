@@ -253,9 +253,8 @@ In this section of the lab you will be working with Hyperledger Composer to crea
       }
 
       /**In this case --> Team asset becomes --> Team DallasCowboys.*/
-      transaction SetSensorTemp identified by transactionId{
+      transaction SetSensorTemp {
         //create your SetSensorTemp transaction model
-        o String transactionId
         --> Team DallasCowboys
         o Double newSensorValue
       }
@@ -296,8 +295,6 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 14. Now create your first transaction model for `SetSensorTemp`. Enter the following attributes:
 
-    * `o String transactionId` — This is given value by the fabric. We will never populate this field.
-
     * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
 
     * `o Double newSensorValue` — This is the variable that will be set by the temperature passed into the transaction from the Raspberry Pi Sens Hat.
@@ -316,7 +313,6 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 15. Build your `ChangeThermostatTemp` transaction model. Add the following:
 
-    * `o String transactionId` — This is given value by the fabric. We will never populate this field.
     * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
     * `o Double newThermostatValue` — This allows for a new, proposed value to be sent into the transaction. In the logic tab, we will use this value to compare to what the sensor says and decide if the thermostat value should be adjusted.
 
@@ -335,8 +331,6 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 16. Enter the following values to build your `CompareWeather` transaction model:
-
-    * `o String transactionId` — This is given value by the fabric. We will never populate this field.
 
     * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
 
@@ -1364,7 +1358,7 @@ Similarly like with the hybrid lab, you need to paste your username and password
 You can click **Done** when completed.
 
 4. Deploy the changes by clicking ont the **Deploy** button.
-![deploy button](images/blockchain-flow-deploy-button.png)
+   ![deploy button](images/blockchain-flow-deploy-button.png)
 
 5. Go to the Dashboard page
 
