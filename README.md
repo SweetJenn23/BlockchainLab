@@ -2,14 +2,14 @@
 # Workshop 3: Blockchain
 
 ## Architecture
-In this lab, we continue building on the existing architecture. In prior labs, you configured your Raspberry Pi with Sens HAT to talk to Watson IoT Foundation running on Bluemix. You grew your interaction by integrating NodeRed and the Watson Conversation service also both running on Bluemix. Your cloud environment will expand to a hybrid cloud by talking with a blockchain network. The Hyperledger V1 Fabric is running on a private server in a secured network. 
+In this lab, we continue building on the existing architecture. In prior labs, you configured your Raspberry Pi with Sens HAT to talk to Watson IoT Foundation running on Bluemix. You grew your interaction by integrating NodeRed and the Watson Conversation service also both running on Bluemix. Your cloud environment will expand to a hybrid cloud by talking with a blockchain network. The Hyperledger V1 Fabric is running on a private server in a secured network.
 
 In this lab, NodeRed will communicate with the Hyperledger Fabric through APIs. NodeRed will also facilitate communication between the ledger and [Weather.com](https://twcservice.mybluemix.net/rest-api/).
 
 ![Lab Architecture](images/BlockchainArchitecture.png)
 
 ## Application Overview
-The blockchain workshop is intended to give you a basic understanding of how a developer would interact with Hyperledger Fabric. In this workshop you will use a Browser based UI to modify chaincode, test your code and deploy your changes. You will also learn how tooling can take the code and generate API to allow for application integration through a REST-ful interface. 
+The blockchain workshop is intended to give you a basic understanding of how a developer would interact with Hyperledger Fabric. In this workshop you will use a Browser based UI to modify chaincode, test your code and deploy your changes. You will also learn how tooling can take the code and generate API to allow for application integration through a REST-ful interface.
 
 This lab will be broken into two parts: creating chaincode and generating API and using NodeRed to test API integration.
 
@@ -18,7 +18,7 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 **ledger:** an account book of final entry where business transactions are recorded. A ledger is typically associated with accounts. In this case, the concept remains the same but for business in general, not just finance.
 
-**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network. 
+**blockchain:** a decentralized, distributed ledger that records transactions between participants in a network.
 
 **block:** An ordered set of transactions that is cryptographically linked to the preceding block(s) on a channel.
 
@@ -34,9 +34,9 @@ With blockchain, many words are used interchangeably. This section is an attempt
 
 **smart contract:** (contract) your terms for doing business in a blockchain network. Really, this is the conditions that a transaction can occur in. It may include checking for other specific information to allow the transaction to occur. In Composer terms, this is the logic that makes your transaction work.
 
-**business network artifact:** When using Composer, the defined network of participants, assets and transactions can be exported to a packaging of files known as a business network artifact (.bna). 
+**business network artifact:** When using Composer, the defined network of participants, assets and transactions can be exported to a packaging of files known as a business network artifact (.bna).
 
-**chaincode:** code written for blockchain. Typically this is an application written in Go or NodeSDK. It now can also mean the same thing as your .bna. When you create your network and supporting logic in Composer, the entire package becomes your chaincode. 
+**chaincode:** code written for blockchain. Typically this is an application written in Go or NodeSDK. It now can also mean the same thing as your .bna. When you create your network and supporting logic in Composer, the entire package becomes your chaincode.
 
 **_Note:_** You may see chaincode, smart contract and transaction (in relation to Composer) used interchangably. They can refer to the same thing conceptually. In reality, chaincode == the business network artifact from Composer, transaction defines what is in a transaction (e.g. data, assets) and a smart contract is really the logic that is written to make a transaction actually happen in Composer.
 
@@ -185,7 +185,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 9. On the warning box, _Current definition will be replaced_, accept the warning by clicking **Replace & Import**.
-   * <u>Note for Hyperledger Composer V0.7 - 0.9</u>: When you deploy your business network to Hyperledger Fabric, the business network name is used as the chaincode ID. If the business network name is changed then a new chaincode ID will be issued and used on deploy. All existing data in blockchain will be lost due to the change. 
+   * <u>Note for Hyperledger Composer V0.7 - 0.9</u>: When you deploy your business network to Hyperledger Fabric, the business network name is used as the chaincode ID. If the business network name is changed then a new chaincode ID will be issued and used on deploy. All existing data in blockchain will be lost due to the change.
      ![Click Replace & Import](images/Part1_Step9.png)
 
 
@@ -219,7 +219,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-12. Click in the **editor** on the right to begin writing your models. 
+12. Click in the **editor** on the right to begin writing your models.
 
     * <u>NOTE:</u> **DO** **NOT** modify the namespace during the lab.
 
@@ -330,7 +330,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
     * `--> Team asset` — The transaction will need to put data into the `Team` asset. This passes a reference to the asset so we can work with the asset in the logic for the transaction.
 
-    * `o Double outsideTemp` — Looking at the [Weather.com API](https://twcservice.eu-gb.mybluemix.net/rest-api/#!/Current_Conditions/v1locobscurrent) for Current Conditions, you can see all of the possible data that the call could return. 
+    * `o Double outsideTemp` — Looking at the [Weather.com API](https://twcservice.eu-gb.mybluemix.net/rest-api/#!/Current_Conditions/v1locobscurrent) for Current Conditions, you can see all of the possible data that the call could return.
 
       ![Weater.com API temps](images/Part1_Step16Temps.png)
 
@@ -368,7 +368,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-18. Review the code in the editor. ******Verify that your variable names match the variable names here.****  Capitalization does matter! If names don't match, you'll have errors. 
+18. Review the code in the editor. ******Verify that your variable names match the variable names here.****  Capitalization does matter! If names don't match, you'll have errors.
 
     * Any guesses what the code is doing for each transaction?
 
@@ -514,7 +514,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-27. The **Submit Transaction** dialog will open a new window. 
+27. The **Submit Transaction** dialog will open a new window.
 
     a.  Make sure that the **Transaction Type** is set to `SetSensorTemp`.
 
@@ -594,7 +594,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-32. This time let's run, `ChangeThermostatTemp`. 
+32. This time let's run, `ChangeThermostatTemp`.
 
 
 1. In the **Transaction Type** drop down, select `ChangeThermostatTemp`.
@@ -730,7 +730,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 
 
 
-39. Click on **Team**. 
+39. Click on **Team**.
 
 ![Click Team](images/Part1_Step39.png)
 
@@ -785,7 +785,7 @@ In this section of the lab you will be working with Hyperledger Composer to crea
 Okay we are going to take the work from the prior 3 labs and connect them to communicate with Blockchain. To do this we are going to have you follow the simple steps.
 
 ### Create Blockchain Flow
-1. Select the JSON below 
+1. Select the JSON below
 
 
 ```JSON
@@ -1334,7 +1334,7 @@ We are now going to update the link node on the "Bluemix IoT Flow" tab. Remember
 
 ![link node](images/iot-flow-link-node.png)
 
-We do this by double clicking on the **Link Node**. 
+We do this by double clicking on the **Link Node**.
 
 ![link node](images/iot-flow-link-node-editor.png)
 
@@ -1351,14 +1351,20 @@ You should now see the node editor for the weather insights node.
 ![current weather node editor](images/blockchain-flow-currentweather-node-editor.png)
 
 Similarly like with the hybrid lab, you need to paste your username and password in to the appropriate fields. Also make sure the **service** is "Current Observations".
+
+Double click the **Inject** node that has geo coordinates (41.58xxx,--8837xxx). Replace the values with the longitude and latitude of Dallas DFW airport:
+
+`32.8980842,-97.0339766`
+
 You can click **Done** when completed.
 
 4. Deploy the changes by clicking ont the **Deploy** button.
-   ![deploy button](images/blockchain-flow-deploy-button.png)
+
+![deploy button](images/blockchain-flow-deploy-button.png)
 
 5. Go to the Dashboard page
 
-You should see that data is now flowing to all of the widgets on the dashboard page. Though you will see some error messages. This is because we have to register with blockchain your team name. If you remember from the lab, you need to create a new "Team Asset". 
+You should see that data is now flowing to all of the widgets on the dashboard page. Though you will see some error messages. This is because we have to register with blockchain your team name. If you remember from the lab, you need to create a new "Team Asset".
 
 We do this by typing our team name in the entry field and then clicking on **Add Team Name** button.
 
@@ -1373,20 +1379,20 @@ This is important, because, in the next steps we are going to validate try to ma
 
 6. Change the Thermostat
 
-In this step we are going to change the value of the "Thermostat". The way you do this is by clicking on the **Thermostat Value** slider and move it. 
+In this step we are going to change the value of the "Thermostat". The way you do this is by clicking on the **Thermostat Value** slider and move it.
 
 ![thermo slider](images/dashboard-thermo-slider.png)
 
-You will notice as you change the slide, the "Thermostat" gauge underneath it also changes. 
-Move the slider to any value you choose. Once you are comfortable with your choice you can 
-send a request to blockchain, to determine if your choice is valid, based on the blockchain contract. 
+You will notice as you change the slide, the "Thermostat" gauge underneath it also changes.
+Move the slider to any value you choose. Once you are comfortable with your choice you can
+send a request to blockchain, to determine if your choice is valid, based on the blockchain contract.
 This is done by clicking the **Change Thermostat** button.
 
 ![change thermo button](images/dashboard-changethermo-button.png)
 
 Now depending on the value you chose, your temperature my be allowed, or reset to its prior value.
 The logic within blockchain is to allow the thermostat to be within plus/minus three degrees of
-your last stored temperature block. So look at your "ense Hat Temperature" value on the screen 
+your last stored temperature block. So look at your "ense Hat Temperature" value on the screen
 and then change your thermostat to be within the allowed value range.
 
 **Invalid Change**
@@ -1398,8 +1404,8 @@ and then change your thermostat to be within the allowed value range.
 
 7. Blockchain Recommendation
 
-In this last step we are sending a request to blockchain to get a recommendation on the appropriate 
-setting for the Thermostat. The smart contract within blockchain will provide you with the 
+In this last step we are sending a request to blockchain to get a recommendation on the appropriate
+setting for the Thermostat. The smart contract within blockchain will provide you with the
 changes needed and execute the change on your behalf. Click on the **Get Recommendation** button.
 
 ![recommendation button](images/dashboard-recommendation-button.png)
@@ -1411,9 +1417,3 @@ Block chain uses the "Outside Temperature" values in addition to your latest Iot
 As you can see the "Thermostat" changed from **36 Degrees to 20 Degrees**.
 
 This concludes the Blockchain Lab. We hope you had fun.
-
-
-
-
-
-
