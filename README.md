@@ -1417,3 +1417,8 @@ Block chain uses the "Outside Temperature" values in addition to your latest Iot
 As you can see the "Thermostat" changed from **36 Degrees to 20 Degrees**.
 
 This concludes the Blockchain Lab. We hope you had fun.
+
+## Jedi Knights and Jedi Masters
+Connect Blockchain to the IoT device by changing the color of the sense hat to **Green** if the recommendation from blockchain doesn't make any changes and change the color to **red** if blockchain had to make a change to your Thermostat
+
+Also, connect the blockchain flows up to Watson Conversation and instead of clicking the **Recommendation** button on the dashboard, have Watson ask for the recommendation and then take the response from Blockchain and send it to the web client.
