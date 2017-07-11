@@ -1328,7 +1328,42 @@ Paste then in the editor. Make sure to select "new flow" button. This will make 
 
 You should now have a new flow with the label of "Blockchain"
 
-2. Update Bluemix IoT Flow
+## Double Check dashboard
+It is possible, highly probable that the dashboard will need to be updated. Look over on the right hand side of you NodeRed, you should see the **Info**, **Debug** and **Dashboard** tabs.
+
+![import editor](images/node-red-dash-tab.png)
+
+1. Click on the **Dashboard** tab. if you screen looks similar to the following, which has multiple **Home** entries:
+
+![import editor](images/node-red-dash-home-small.png)
+
+If it does, this is okay, we just need to move the Entries from the bottom to the top list.
+
+If is doesn't then, you can move to **STEP 6**
+
+2. Click on the lower home entry and the upper Home entry. It should look like the following
+
+![import editor](images/block-1.png)
+
+3. Move the items **Team Name** by selecting it and dragging it to the upper list.
+
+![import editor](images/block-2.png)
+
+
+4. Do the same for the rest of the **Get Recommendation**, **add Team Name** and **Ask Block chain**. Your completed should look like the following:
+
+![import editor](images/block-3.png)
+
+**THE ORDER MATTERS MAKE SURE THEY ARE THE SAME**
+
+5. You should now do the same thing for **Thermostat** by moving the **Change Thermostat** to the upper list.
+
+Your final list should look like the following
+
+![import editor](images/block-full.png)
+
+
+6. Update Bluemix IoT Flow
 
 We are now going to update the link node on the "Bluemix IoT Flow" tab. Remember, previously we updated the link node to send updates to the dashboard. Now we are going to also have the "Iot Environment" events sent to the newly created "Blockchain" flow.
 
@@ -1340,7 +1375,7 @@ We do this by double clicking on the **Link Node**.
 
 Make sure all three check boxes are checked. "IoT Event - Temperature" is the new box that needs to be checked. This will send the IoT events to the Blockchain flow.
 
-3. Update Weather Insight node
+7. Update Weather Insight node
 
 Double click on the **Current weather** node.
 
@@ -1358,11 +1393,11 @@ Double click the **Inject** node that has geo coordinates (41.58xxx,--8837xxx). 
 
 You can click **Done** when completed.
 
-4. Deploy the changes by clicking ont the **Deploy** button.
+8. Deploy the changes by clicking ont the **Deploy** button.
 
 ![deploy button](images/blockchain-flow-deploy-button.png)
 
-5. Go to the Dashboard page
+9. Go to the Dashboard page
 
 You should see that data is now flowing to all of the widgets on the dashboard page. Though you will see some error messages. This is because we have to register with blockchain your team name. If you remember from the lab, you need to create a new "Team Asset".
 
@@ -1377,7 +1412,7 @@ You should see a status message indicate the team name was added successfully.
 Now your IoT events are will be added to blockchain under your asset name. You should see the counter for blocks increment as your IoT events are being sent.
 This is important, because, in the next steps we are going to validate try to make some changes and blockchain will help in the process.
 
-6. Change the Thermostat
+10. Change the Thermostat
 
 In this step we are going to change the value of the "Thermostat". The way you do this is by clicking on the **Thermostat Value** slider and move it.
 
@@ -1402,7 +1437,7 @@ and then change your thermostat to be within the allowed value range.
 **Valid Change**
 ![change thermo good](images/dashboard-change-thermo-good.png)
 
-7. Blockchain Recommendation
+11. Blockchain Recommendation
 
 In this last step we are sending a request to blockchain to get a recommendation on the appropriate
 setting for the Thermostat. The smart contract within blockchain will provide you with the
