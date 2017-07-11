@@ -1326,7 +1326,12 @@ Paste then in the editor. Make sure to select "new flow" button. This will make 
 
 ![import editor](images/node-red-menu-import-editor.png)
 
-You should now have a new flow with the label of "Blockchain"
+You should now have a new flow change the label to  "Blockchain"
+
+If you haven't this is yet, make sure you do the Dashboard Work from this link.
+
+https://github.com/jdcalus/STSA-Dashboard
+
 
 ## Double Check dashboard
 It is possible, highly probable that the dashboard will need to be updated. Look over on the right hand side of you NodeRed, you should see the **Info**, **Debug** and **Dashboard** tabs.
