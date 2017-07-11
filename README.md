@@ -1334,7 +1334,7 @@ https://github.com/jdcalus/STSA-Dashboard
 
 
 ## Double Check dashboard
-It is possible, highly probable that the dashboard will need to be updated. Look over on the right hand side of you NodeRed, you should see the **Info**, **Debug** and **Dashboard** tabs.
+It is possible, highly probable that after doing the paste from above and the link for the dashboard work, the NodeRed dashboard will need to be updated. Look over on the right hand side of you NodeRed, you should see the **Info**, **Debug** and **Dashboard** tabs.
 
 ![import editor](images/node-red-dash-tab.png)
 
